@@ -3,18 +3,35 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- <div class="donutContainer">
-      <h2>Donut</h2>
-      <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-        <circle id="circle" style="stroke-dashoffset: 160;/* 160 of 440 */" class="donut" r="69.85699" cy="81" cx="81" stroke-width="10" stroke="#69aff4" stroke-linecap="round" fill="none"/>
+  <div class="container">
+    <div class="container-donut">
+      <svg viewBox="0 0 162 162" xmlns="http://www.w3.org/2000/svg">
+        <text class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">Donut</text>
+        <circle r="69.85699" cy="81" cx="81" stroke-width="9" stroke="#F2F2F2" fill="none"/>
+        <circle id="circle" style="stroke-dashoffset: 220;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="81" cx="81" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
       </svg>
-  </div> -->
-  <div class="donutContainer">
-      <h2>Donut 2</h2>
-      <svg viewBox="0 0 162 162" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <circle id="circle" r="69.85699" cy="81" cx="81" stroke-width="9" stroke="#F2F2F2" fill="none"/>
-        <circle id="circle" style="stroke-dashoffset: 220;/* 220 of 440 */" class="donut" r="69.85699" cy="81" cx="81" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
+    </div>
+
+    <div class="container-donut">
+      <svg viewBox="0 0 162 162" xmlns="http://www.w3.org/2000/svg">
+        <text id="donutText" class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">Donut</text>
+        <circle r="69.85699" cy="50%" cx="50%" stroke-width="9" stroke="#F2F2F2" fill="none"/>
+        <circle id="circle" style="stroke-dashoffset: 40;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="50%" cx="50%" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
       </svg>
+    </div>
+
+    <div class="container-donut">
+      <svg viewBox="0 0 162 162" xmlns="http://www.w3.org/2000/svg">
+        <text class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">Donut</text>
+        <circle r="69.85699" cy="81" cx="81" stroke-width="9" stroke="#F2F2F2" fill="none"/>
+        <circle id="circle" style="stroke-dashoffset: 220;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="81" cx="81" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
   </div>
+
+  <script type="text/javascript">
+    var svg = document.getElementById('donutText').textContent;
+    console.log(svg);
+  </script>
 </body>
 </html>
