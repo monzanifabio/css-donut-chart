@@ -16,8 +16,10 @@
       <svg viewBox="0 0 162 162" xmlns="http://www.w3.org/2000/svg">
         <text id="donutText" class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">Donut</text>
         <circle r="69.85699" cy="50%" cx="50%" stroke-width="9" stroke="#F2F2F2" fill="none"/>
-        <circle id="circle" style="stroke-dashoffset: 40;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="50%" cx="50%" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
+        <circle id="donutValue" style="stroke-dashoffset: 320;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="50%" cx="50%" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
       </svg>
+      <input type="text" id="numberInput"></input>
+      <input type="submit" onclick="getNumber()"></input>
     </div>
 
     <div class="container-donut">
@@ -30,8 +32,21 @@
   </div>
 
   <script type="text/javascript">
-    var svg = document.getElementById('donutText').textContent;
-    console.log(svg);
+
+  var number1 = 0;
+
+  function getNumber() {
+    var number1 = document.getElementById('numberInput').value;
+    var number2 = 440;
+    result = (Math.floor((number1 * number2) / 100));
+    inverse = 440 - result;
+
+    var svg = document.getElementById('donutText').textContent = number1 + "%";
+    document.getElementById("donutValue").style.strokeDashoffset = inverse;
+  }
+
+
+
   </script>
 </body>
 </html>
