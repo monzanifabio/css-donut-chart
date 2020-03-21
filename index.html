@@ -14,12 +14,10 @@
 
     <div class="container-donut">
       <svg viewBox="0 0 162 162" xmlns="http://www.w3.org/2000/svg">
-        <text id="donutText" class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">Donut</text>
+        <text id="donutText" class="label" x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#2C313C">-</text>
         <circle r="69.85699" cy="50%" cx="50%" stroke-width="9" stroke="#F2F2F2" fill="none"/>
-        <circle id="donutValue" style="stroke-dashoffset: 320;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="50%" cx="50%" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
+        <circle id="donutValue" style="stroke-dashoffset: 440;/* 220 of 440 */" class="donut rotate" r="69.85699" cy="50%" cx="50%" stroke-width="10" stroke="#FEC007" stroke-linecap="round" fill="none"/>
       </svg>
-      <input type="text" id="numberInput"></input>
-      <input type="submit" onclick="getNumber()"></input>
     </div>
 
     <div class="container-donut">
@@ -31,21 +29,33 @@
     </div>
   </div>
 
+    <input type="number" min="1" max="100" maxlength="3" id="inputNumber"></input>
+    <input type="submit" onclick="getNumber()"></input>
+
   <script type="text/javascript">
 
-  var number1 = 0;
+  var inputNumber = document.getElementById('inputNumber');
+  var radiusValue = 440;
+  var donutValue = document.getElementById("donutValue");
 
-  function getNumber() {
-    var number1 = document.getElementById('numberInput').value;
-    var number2 = 440;
-    result = (Math.floor((number1 * number2) / 100));
-    inverse = 440 - result;
-
-    var svg = document.getElementById('donutText').textContent = number1 + "%";
-    document.getElementById("donutValue").style.strokeDashoffset = inverse;
+  // Check if the input number is bigger than 100
+  inputNumber.oninput = function() {
+    if (this.value > 100) {
+      this.value = 100;
+    }
   }
 
+  // Update the donut chart with the new number from the input
+  function getNumber() {
+    var baseNumber = inputNumber.value;
+    result = (Math.floor((baseNumber * radiusValue) / 100));
+    inverse = 440 - result;
 
+    var svg = document.getElementById('donutText').textContent = baseNumber + "%";
+
+    donutValue.style.strokeDashoffset = inverse;
+
+  }
 
   </script>
 </body>
